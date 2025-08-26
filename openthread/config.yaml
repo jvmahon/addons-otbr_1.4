@@ -4,11 +4,11 @@ slug: openthread_border_router
 name: OpenThread Border Router
 description: OpenThread Border Router add-on
 url: >-
-  https://github.com/home-assistant/addons/tree/master/openthread_border_router
+  https://github.com/jvmahon/addons-otbr_1.4/tree/master/openthread_border_router
 arch:
   - aarch64
   - amd64
-homeassistant: 2023.9.0
+homeassistant: 2025.1.0
 gpio: true
 hassio_api: true
 discovery:
