@@ -17,7 +17,7 @@ ENV REST_API 1
 ENV DHCPV6_PD_REF 0
 ENV DOCKER 1
 
-# COPY 0001-channel-monitor-disable-by-default.patch /usr/src
+COPY 0001-channel-monitor-disable-by-default.patch /usr/src
 COPY openthread-core-ha-config-posix.h /usr/src
 # Required and installed (script/bootstrap) can be removed after build
 ENV OTBR_BUILD_DEPS build-essential ninja-build cmake wget ca-certificates \
@@ -55,7 +55,7 @@ RUN \
     && ./script/bootstrap \
     && ( \
         cd third_party/openthread/repo \
-        # && patch -p1 < /usr/src/0001-channel-monitor-disable-by-default.patch \
+        && patch -p1 < /usr/src/0001-channel-monitor-disable-by-default.patch \
         && cp /usr/src/openthread-core-ha-config-posix.h . \
        ) \
     # Mimic rt_tables_install \
@@ -67,14 +67,14 @@ RUN \
         -DOTBR_FEATURE_FLAGS=ON \
         -DOTBR_DNSSD_DISCOVERY_PROXY=ON \
         -DOTBR_SRP_ADVERTISING_PROXY=ON \
-        -DOTBR_MDNS=openthread \
+        -DOTBR_MDNS=mDNSResponder \
         -DOTBR_VERSION= \
         -DOT_PACKAGE_VERSION= \
         -DOTBR_DBUS=OFF \
         -DOT_POSIX_RCP_BUS_UART=ON \
         -DOT_LINK_RAW=1 \
         -DOTBR_VENDOR_NAME="Home Assistant" \
-        -DOTBR_PRODUCT_NAME="OpenThread Border Router 1.4" \
+        -DOTBR_PRODUCT_NAME="OpenThread Border Router" \
         -DOTBR_WEB=ON \
         -DOTBR_BORDER_ROUTING=ON \
         -DOTBR_REST=ON \
@@ -87,7 +87,7 @@ RUN \
         -DOT_COAP=OFF \
         -DOT_COAPS=OFF \
         -DOT_DNS_CLIENT_OVER_TCP=OFF \
-        -DOT_THREAD_VERSION=1.4 \
+        -DOT_THREAD_VERSION=1.3 \
         -DOT_PROJECT_CONFIG="../openthread-core-ha-config-posix.h" \
         -DOT_RCP_RESTORATION_MAX_COUNT=2 \
         && cd build/otbr/ \
