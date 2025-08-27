@@ -1,7 +1,7 @@
 ---
 build_from:
-  aarch64: ghcr.io/home-assistant/aarch64-base-debian:trixie
-  amd64: ghcr.io/home-assistant/amd64-base-debian:trixie
+  aarch64: ghcr.io/home-assistant/aarch64-base-debian:bookworm
+  amd64: ghcr.io/home-assistant/amd64-base-debian:bookworm
 args:
   OTBR_VERSION: 2ce99188e4326375eca509a50fd2488dd3a9e11c
   UNIVERSAL_SILABS_FLASHER: 0.0.32
