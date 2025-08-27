@@ -73,7 +73,7 @@ RUN \
         -DOTBR_DBUS=OFF \
         -DOT_POSIX_RCP_BUS_UART=ON \
         -DOT_LINK_RAW=1 \
-        -DOTBR_VENDOR_NAME="Home Assistant" \
+        -DOTBR_VENDOR_NAME="Home Assistant (Nabu Casa)" \
         -DOTBR_PRODUCT_NAME="OpenThread Border Router 1.4" \
         -DOTBR_WEB=ON \
         -DOTBR_BORDER_ROUTING=ON \
